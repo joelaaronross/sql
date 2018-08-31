@@ -1,0 +1,1 @@
+select * From bank_db.accounts;
