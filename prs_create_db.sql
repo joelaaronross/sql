@@ -47,7 +47,7 @@ CREATE TABLE vendor(
   State					VARCHAR(2)		not null,
   Zip					VARCHAR(5)		not null,
   PhoneNumber			VARCHAR(12)		not null,
-  Email					VARCHAR(100)	naccountsot null,
+  Email					VARCHAR(100)	not null,
   IsPreApproved			TinyInt(1)		not null,
   IsActive				TinyInt(1)		default 1	not null,
   DateCreated			DATETIME		default current_timestamp not null,
