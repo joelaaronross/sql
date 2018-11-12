@@ -4,7 +4,7 @@ CREATE DATABASE prs;
 USE prs;
 -- create the Product table
 CREATE TABLE user(
-  ID                     INT             PRIMARY KEY  AUTO_INCREMENT,
+  tvshowID                     INT             PRIMARY KEY  AUTO_INCREMENT,
   UserName               VARCHAR(20) 	not null,   
   Password               VARCHAR(10)	not null,   
   FirstName				 VARCHAR(20) 	not null,  
@@ -120,6 +120,6 @@ INSERT INTO `product` (`ID`,`VendorID`,`PartNumber`,`Name`,`Price`,`Unit`,`Photo
 INSERT INTO `product` (`ID`,`VendorID`,`PartNumber`,`Name`,`Price`,`Unit`,`PhotoPath`) VALUES (13,5,'279364','Lenovo IdeaCentre All-In-One Desktop',349.99,'','/images/LenovoIdeaCenter.jpg');
 
 -- make user.Email unique
-alter table user
-add unique (Email);
+CREATE USER prs_user@localhost IDENTIFIED BY 'sesame';
+GRANT SELECT, INSERT, DELETE, UPDATE ON prs.* TO prs_user@localhost;
 
