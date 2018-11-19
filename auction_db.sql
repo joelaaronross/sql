@@ -20,8 +20,8 @@ CREATE TABLE auction(
 -- create Item table
 CREATE TABLE item (
   ID                
-(itmstr varchar( 5 ) default 'emp',
-itmno int( 5 ) AUTO_INCREMENT PRIMARY KEY ,
+(itemstr varchar(2) default 'em',
+itemno int(8) AUTO_INCREMENT PRIMARY KEY ,
 );
  
   ItemBrand 				VARCHAR(25)		    not null,    
