@@ -4,13 +4,13 @@ CREATE DATABASE auction_db;
 USE auction_db;
 -- create the lotter table
 CREATE TABLE lotter(
-  ID                   INT             PRIMARY KEY  AUTO_INCREMENT,
+  Id                   INT             PRIMARY KEY  AUTO_INCREMENT,
   Name                 VARCHAR(20) 	   not null
   
 );
 -- create auction table
 CREATE TABLE auction(
-  ID                   INT              PRIMARY KEY  AUTO_INCREMENT,
+  Id                  INT              PRIMARY KEY  AUTO_INCREMENT,
   Title                VARCHAR(255)		not null,
   StartDateTime        DATETIME		    not null,     
   EndDateTime          DATETIME		    not null
@@ -19,37 +19,33 @@ CREATE TABLE auction(
 
 -- create Item table
 CREATE TABLE item (
-  ID                
-(itemstr varchar(2) default 'em',
-itemno int(8) AUTO_INCREMENT PRIMARY KEY ,
-);
- 
+  Id                		INT                 not null,
   ItemBrand 				VARCHAR(25)		    not null,    
   ItemDescription   		VARCHAR(255)		not null,  
-  MSRP 						DECIMAL(10,2)			not null,
+  MSRP 						DECIMAL(10,2)		not null,
   Model						VARCHAR(255)		not null,
   LoadNumber				INT					not null,
   LotterID					INT					not null,
   AuctionID        			INT			        not null,
   
-  FOREIGN KEY (LotterID) REFERENCES Lotter (ID),
-  FOREIGN KEY (AuctionID) REFERENCES Auction (ID)
+  FOREIGN KEY (LotterId) REFERENCES Lotter (Id),
+  FOREIGN KEY (AuctionId) REFERENCES Auction (Id)
   
 );
 
 -- create Image table
 CREATE TABLE image (
-  ID            	    INT             PRIMARY KEY  AUTO_INCREMENT,
+  ImageId            	        INT                 not null,
   PictureUrl 	    	VARCHAR(255)		        not null,
-  ItemID  				VARCHAR(25)         	    not null,
+  ItemId  				 		INT         	    not null,
   
-  FOREIGN KEY (ImageID) REFERENCES Image (ID)
-  
+  FOREIGN KEY (ImageId) REFERENCES Image (Id),
+  CONSTRAINT 			 image_ibfk_1 unique (ImageId)
   );
  
 -- insert lotter
 INSERT INTO lotter
-(ID, Name) 
+(Id, Name) 
 VALUES 
 (41, 'Daniel'),
 (42, 'Sherry'),
@@ -59,7 +55,7 @@ VALUES
 
 -- insert auction
 INSERT INTO auction 
-(ID, Title, StartDateTime, EndDateTime) 
+(Id, Title, StartDateTime, EndDateTime) 
 VALUES 
 (1001, 'Awesome Auction',   '2018-06-01 12:00:00', '2018-06-06 12:00:00'),
 (1002,	'Great Auction',	'2018-06-02 14:00:00',	'2018-06-07 14:00:00'),
@@ -68,7 +64,7 @@ VALUES
 
 -- insert image
 INSERT INTO image 
-(ID, PictureUrl, ItemID) 
+(Id, PictureUrl, ItemId) 
 VALUES 
 (1, 	'www.bidfta.com/imageEM86721_1', 'EM86721'),
 (2, 	'www.bidfta.com/imageEM86721_2', 'EM86721'),
@@ -174,7 +170,7 @@ VALUES
 
 -- insert auction
 INSERT INTO item
- (ID, ItemBrand, ItemDescription, MSRP, Model, LoadNumber, LotterID, AuctionID) 
+ (Id, ItemBrand, ItemDescription, MSRP, Model, LoadNumber, LotterId, AuctionId) 
 VALUES 
 ('EM86721',	'BUFFALO TOOLS',	'BLACK BULL COS14 14-INCH CUT OFF SAW',	'259.99',	'COS14',	'22960', 45,	1001),
 ('EM86722',	'DYNA-GLO',	'DYNA-GLO DGO1176BDC-D CHARCOAL OFFSET SMOKER',	'219',	'DGO1176BDC-D',	'22960',	45,	1001),
