@@ -4,7 +4,7 @@ CREATE DATABASE prs;
 USE prs;
 -- create the Product table
 CREATE TABLE user(
-  tvshowID                     INT             PRIMARY KEY  AUTO_INCREMENT,
+  ID                     INT             PRIMARY KEY  AUTO_INCREMENT,
   UserName               VARCHAR(20) 	not null,   
   Password               VARCHAR(10)	not null,   
   FirstName				 VARCHAR(20) 	not null,  
