@@ -25,8 +25,8 @@ CREATE TABLE item (
   MSRP 						DECIMAL(10,2)		not null,
   Model						VARCHAR(255)		not null,
   LoadNumber				INT					not null,
-  LotterID					INT					not null,
-  AuctionID        			INT			        not null,
+  LotterId					INT					not null,
+  AuctionId        			INT			        not null,
   
   FOREIGN KEY (LotterId) REFERENCES Lotter (Id),
   FOREIGN KEY (AuctionId) REFERENCES Auction (Id)
@@ -39,8 +39,8 @@ CREATE TABLE image (
   PictureUrl 	    	VARCHAR(255)		        not null,
   ItemId  				 		INT         	    not null,
   
-  FOREIGN KEY (ImageId) REFERENCES Image (Id),
-  CONSTRAINT 			 image_ibfk_1 unique (ImageId)
+  FOREIGN KEY (ImageId) REFERENCES Image (Id)
+
   );
  
 -- insert lotter
